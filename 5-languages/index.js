@@ -11,7 +11,7 @@ switch (language) {
         console.log("Здравствуйте");
         break;
     case "de":
-        console.log("Hallo");
+        console.log("Gutten tag!");
         break;
     default:
         console.log("empty language");
