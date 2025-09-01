@@ -34,4 +34,4 @@ const main = (sum, currency, targetCurrency) => {
     return convertedSum;
 };
 
-main(1000, "RUB", "JPY");
+main(1000, "руб", "евр");
