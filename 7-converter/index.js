@@ -15,11 +15,11 @@ const convertViaUSD = (amount, fromCurrency, toCurrency, rates) => {
 
 const main = (sum, currency, targetCurrency) => {
     const exchangeRates = {
-        USD: 1,
-        EUR: 1.17,
-        RUB: 0.0124,
-        GBP: 1.38,
-        JPY: 0.0091
+        дол: 1,
+        евр: 1.17,
+        руб: 0.0124,
+        // GBP: 1.38,
+        // JPY: 0.0091
     };
 
     if (currency === targetCurrency) {
