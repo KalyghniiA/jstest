@@ -1,64 +1,37 @@
-const main = (sum, currency, targetCurrency) => {
-    const mainCurrencyValue = 1;
-
-    const currenciesValues = [
-        {
-            currency: "USD",
-            value: mainCurrencyValue
-        },
-        {
-            currency: "EUR",
-            value: mainCurrencyValue * 1.17
-        },
-        {
-            currency: "RUB",
-            value: mainCurrencyValue * 0.0124
-        }
-    ]
-    if (!checkConvert(currency, targetCurrency, currenciesValues)) {
+const convertViaUSD = (amount, fromCurrency, toCurrency, rates) => {
+    if (!rates[fromCurrency]) {
+        console.log(`Курс для валюты ${fromCurrency} не найден`);
+        return null;
+    }
+    if (!rates[toCurrency]) {
+        console.log(`Курс для валюты ${toCurrency} не найден`);
         return null;
     }
 
-    if (targetCurrency === "USD") {
-        return convert(sum, currency, currenciesValues);
-    } else {
-        const convertedValue = convert(sum, currency, currenciesValues);
-        return convert(convertedValue, targetCurrency, currenciesValues);
-    }
-}
+    const amountInUSD = amount * rates[fromCurrency];
 
-const checkAbilityConvert = (currency, currencies) => {
-    for (const e of currencies) {
-        if (e.currency === currency) {
-            return true;
-        }
-    }
-    return false;
-}
+    return amountInUSD / rates[toCurrency];
+};
 
-const checkConvert = (firstCurrency, secondCurrency, currenciesDictionary) => {
-    if (firstCurrency === secondCurrency) {
-        console.log("Указаны одинаковые валюты");
-        return false;
+const main = (sum, currency, targetCurrency) => {
+    const exchangeRates = {
+        USD: 1,
+        EUR: 1.17,
+        RUB: 0.0124,
+        GBP: 1.38,
+        JPY: 0.0091
+    };
+
+    if (currency === targetCurrency) {
+        return sum;
     }
 
-    if (!checkAbilityConvert(firstCurrency, currenciesDictionary)) {
-        console.log(checkAbilityConvert(firstCurrency, currenciesDictionary));
-        console.log("Не поддерживается начальная валюта");
-        return false;
+    const convertedSum = convertViaUSD(sum, currency, targetCurrency, exchangeRates);
+    if (convertedSum === null) {
+        console.log("Ошибка при конвертации");
+        return null;
     }
+    return convertedSum;
+};
 
-    if (!checkAbilityConvert(firstCurrency, currenciesDictionary)) {
-        console.log("Не поддерживается конвертируемая валюта");
-        return false;
-    }
-
-    return true;
-}
-
-const convert = (sum, currency, currencyDictionary) => {
-    return currencyDictionary.filter(e => e.currency === currency)[0].value * sum;
-}
-
-
-main(1000, "RUB", "EUR");
+main(1000, "RUB", "JPY");
