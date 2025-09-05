@@ -1,7 +1,17 @@
 const crypto = (pass) => {
     const symbols = pass.split("");
     const leftReverse = symbols.slice(0, symbols.length / 2 ).reverse();
-    const rightReverse = symbols.slice(symbols.length / 2, symbols.length).reverse();
+    const rightReverseStart = symbols.slice(symbols.length / 2, symbols.length).reverse();
+    let rightReverse;
+    if (rightReverseStart.length > 1) {
+        const indexStart = rightReverseStart.length / 2 - 1;
+        const indexEnd = rightReverseStart.length / 2;
+        const left = rightReverseStart.slice(0, indexStart + 1);
+        const right = rightReverseStart.slice(indexEnd);
+        left[left.length - 1] = rightReverseStart[indexEnd];
+        right[0] = rightReverseStart[indexStart];
+        rightReverse = left.concat(right);
+    }
     return leftReverse.concat(rightReverse).join("");
 }
 
@@ -9,5 +19,5 @@ const check = (pass, cryptoPass) => {
     return pass === crypto(cryptoPass);
 }
 
-crypto("password");
-check("password", "ssapdrow");
+// console.log(crypto("password"));
+// console.log(check("password", "ssapdorw"));
