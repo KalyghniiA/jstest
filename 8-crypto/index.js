@@ -11,8 +11,7 @@ const crypto = (pass) => {
         left[left.length - 1] = rightReverseStart[indexEnd];
         right[0] = rightReverseStart[indexStart];
         rightReverse = left.concat(right);
-    }
-    else {
+    } else {
         rightReverse = rightReverseStart;
     }
     return leftReverse.concat(rightReverse).join("");
