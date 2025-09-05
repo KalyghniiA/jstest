@@ -6,8 +6,8 @@ const crypto = (pass) => {
 }
 
 const check = (pass, cryptoPass) => {
-    return pass === toCrypto(cryptoPass);
+    return pass === crypto(cryptoPass);
 }
 
-toCrypto("password");
-checkEqualsPassword("password", "ssapdrow");
+crypto("password");
+check("password", "ssapdrow");
