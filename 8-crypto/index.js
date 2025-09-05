@@ -12,12 +12,15 @@ const crypto = (pass) => {
         right[0] = rightReverseStart[indexStart];
         rightReverse = left.concat(right);
     }
+    else {
+        rightReverse = rightReverseStart;
+    }
     return leftReverse.concat(rightReverse).join("");
 }
 
-const check = (pass, cryptoPass) => {
-    return pass === crypto(cryptoPass);
+const check = (cryptoPass, pass) => {
+    return crypto(cryptoPass) === pass;
 }
 
-// console.log(crypto("password"));
-// console.log(check("password", "ssapdorw"));
+console.log(crypto("password"));
+console.log(check("password", "ssapdorw"));
