@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calc</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header class="header">
+        <p>Calculate</p>
+    </header>
+    <main class="main">
+        <form class="calc-form" method="post" action="">
+            <div class="calc-form__container calc-form__container--input">
+                <label for="first-value-input">Первое значение</label>
+                <input class="calc-form__input input__first" type="text" name="first-value-input" id="first-value-input" >
+                <p class="calc-form__input-modal calc-form__input-modal--hidden">text</p>
+            </div>
+            <div class="calc-form__container calc-form__container--input">
+                <label for="second-value-input">Второе значение</label>
+                <input class="calc-form__input input__first" type="text" name="second-value-input" id="second-value-input">
+                <p class="calc-form__input-modal calc-form__input-modal--hidden">text</p>
+            </div>
+            <div class="calc-form__container calc-form__container--operations">
+                <button class="calc-form__button calc-form__button-operation" type="button" onclick="generateTextToOperation(event)">+</button>
+                <button class="calc-form__button calc-form__button-operation" type="button" onclick="generateTextToOperation(event)">-</button>
+                <button class="calc-form__button calc-form__button-operation" type="button" onclick="generateTextToOperation(event)">*</button>
+                <button class="calc-form__button calc-form__button-operation" type="button" onclick="generateTextToOperation(event)">/</button>
+            </div>
+            <p>Выбранная операция: <span class="calc-form__check-operation-span"></span></p>
+            <button class="calc-form__button calc-form__button-submit" type="submit" onclick="generateResult(event)">Получить результат</button>
+
+            <div class="calc-form__container calc-form__container--input">
+                <label for="result-input">Результат</label>
+                <input class="calc-form__input input__result" type="text" name="result-input" id="result-input" readonly>
+                <p class="calc-form__input-modal calc-form__input-modal--hidden">text</p>
+            </div>
+        </form>
+    </main>
+<script src="js/main.js"></script>
+</body>
+</html>
