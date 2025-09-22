@@ -1,17 +1,18 @@
 "use strict";
 
-const set = new Set([
+const arr = [
     { id: 1, name: "Вася" },
 { id: 2, name: "Петя" },
 { id: 1, name: "Вася" },
-])
+];
 
-const unique = (set) => {
-    const newArr = [];
-    [...set].map(item => {
-        if (!newArr.find(elem => elem.id === item.id)) newArr.push(item);
-    });
-    return newArr;
+const unique = (arr) => {
+    const set = new Set();
+    arr.forEach(elem => {
+            const {id} = elem;
+            set.add(id);
+        });
+    return [...set].map(id => arr.find(elem => elem.id === id));
 }
 
-console.log(unique(set));
+console.log(unique(arr));
