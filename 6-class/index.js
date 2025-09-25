@@ -15,7 +15,7 @@ class Car {
     }
 
     set mileage(mileage) {
-        this.#mark = mileage;
+        this.#mileage = mileage;
     }
 
 
