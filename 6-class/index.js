@@ -10,15 +10,16 @@ class Car {
         this.#mileage = mileage;
     }
 
-    get mark() {
-        return this.#mark;
+    get mileage() {
+        return this.#mileage;
     }
 
-    set mark(mark) {
-        this.#mark = mark;
+    set mileage(mileage) {
+        this.#mark = mileage;
     }
 
-    getInfo() {
+
+    info() {
         console.log(`Car: ${this.#mark}, model: ${this.#model}, mileage: ${this.#mileage}`);
     }
 }
