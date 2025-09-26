@@ -14,7 +14,7 @@ const getPokemonEffect = () => {
 
         res2.addEventListener("load", () => {
             const ability = JSON.parse(res2.responseText);
-            console.log(ability.effect_entries[0].effect);
+            console.log(ability.effect_entries.filter(elem => elem.language.name === "en")[0].effect);
         })
     })
 }
