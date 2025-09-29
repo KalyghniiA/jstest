@@ -1,7 +1,8 @@
 const race = async (promises) => {
-    for (let promise in promises) {
-        if (promise.ok === true)
-            return promise;
+    try {
+        const data = await Promise.all(promises);
+        return data[0];
+    } catch (error) {
+        console.error(error);
     }
 }
-
