@@ -1,7 +1,11 @@
 const race = async (promises) => {
     try {
-        const data = await Promise.all(promises);
-        return data[0];
+        for (let promise of promises) {
+            const resolve = await promise.resolve();
+            if (resolve.status === "fulfilled") {
+                return resolve;
+            }
+        }
     } catch (error) {
         console.error(error);
     }
