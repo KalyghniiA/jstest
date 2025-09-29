@@ -1,5 +1,9 @@
-const promNavigation = new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-        position => resolve(position),
-            error => {reject(error)});
-})
+const getGeo = () => {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+            position => resolve(position),
+            error => {
+                reject(error)
+            });
+    })
+}
