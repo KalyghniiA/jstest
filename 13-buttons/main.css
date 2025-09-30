@@ -1,0 +1,30 @@
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.buttons {
+    flex-grow: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    padding: 20px;
+    background-color: darkseagreen;
+    border: none;
+    border-radius: 15px;
+    color: antiquewhite;
+}
+
+.button--active {
+    background-color: antiquewhite;
+    color: darkseagreen;
+}
+
+.counter {
+    flex-grow: 1;
+}
