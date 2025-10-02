@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "roll": "rollup index.js --file bundle.js --format iife",
-    "life": "live-server",
-    "build": "npm run roll && npm run life"
+    "start": "live-server",
+    "build": "npm run roll"
   },
   "private": true,
   "devDependencies": {
